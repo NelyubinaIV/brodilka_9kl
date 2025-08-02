@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бродилка: Волшебная академия</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Marck+Script&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.12.0",
+    "lit": "https://esm.sh/lit@^3.3.1",
+    "lit/": "https://esm.sh/lit@^3.3.1/",
+    "highlight.js": "https://esm.sh/highlight.js@^11.11.1",
+    "marked": "https://esm.sh/marked@^16.1.1",
+    "marked-highlight": "https://esm.sh/marked-highlight@^2.2.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="game-container">
+    <header>
+      <h1 class="title">Игра-бродилка: Волшебная академия</h1>
+    </header>
+    
+    <main id="game">
+      <div id="board-container">
+        <div id="board"></div>
+      </div>
+      
+      <aside id="sidebar">
+        <div id="scoreboard">
+          <h3>Очки команд</h3>
+          <ul>
+            <li data-team-id="0">🦁 Команда 1 (Гриффиндор): <span id="score0">0</span></li>
+            <li data-team-id="1">🦅 Команда 2 (Когтевран): <span id="score1">0</span></li>
+            <li data-team-id="2">🦡 Команда 3 (Пуффендуй): <span id="score2">0</span></li>
+            <li data-team-id="3">🐍 Команда 4 (Слизерин): <span id="score3">0</span></li>
+          </ul>
+        </div>
+
+        <div id="controls">
+          <div id="dice-container">
+            <div id="dice">?</div>
+          </div>
+          <button id="rollDice">Бросить кубик</button>
+        </div>
+
+        <div id="turn-indicator">
+            <p>Ход команды: <span id="current-team-name">🦁 Гриффиндор</span></p>
+        </div>
+      </aside>
+    </main>
+
+    <div id="modal" class="hidden">
+      <div class="modal-content">
+        <h3 id="modal-title"></h3>
+        <p id="modal-text"></p>
+        <div id="options-container"></div>
+        <div id="answer-feedback"></div>
+        <div id="modal-buttons">
+            <button id="correct-btn">Верно</button>
+            <button id="incorrect-btn">Неверно</button>
+            <button id="show-answer-btn">Показать ответ</button>
+            <button id="next-turn-btn">Следующий ход</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="winner-modal" class="hidden">
+      <div class="modal-content">
+        <h2 id="winner-text"></h2>
+        <button id="restart-game">Играть снова</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
